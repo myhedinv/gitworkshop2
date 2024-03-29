@@ -19,7 +19,7 @@ const client = new net.Socket();
 
 client.connect(port, host, () => {
     console.log('Connected to server');
-    handleUserInput;
+    handleUserInput();
 });
 
 client.on('data', (data) => {
