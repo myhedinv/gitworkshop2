@@ -21,22 +21,3 @@ client.connect(port, host, () => {
     console.log('Connected to server');
     handleUserInput;
 });
-
-client.on('data', (data) => {
-    console.log(`${data}`);
-    const resp = data.toString();
-    if (resp.startsWith("/")) { // is a command
-        if (resp.startsWith("/exit")) {
-            client.destroy();
-        }
-    }
-});
-
-client.on('close', () => {
-    console.log('Connection closed');
-    client.destroy();
-});
-
-client.on('error', (err) => {
-    console.log(`Error: ${err}`)
-});
